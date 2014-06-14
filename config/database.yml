@@ -2,12 +2,15 @@
 #
 default: &default
   adapter: postgresql
+  encoding: unicode
   pool: 5
+  port: 5432
   timeout: 5000
+  host: localhost
 
 development:
   <<: *default
-  host: localhost
+  database: foosball_development
   #database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
@@ -15,8 +18,10 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  database: foosball_test
   #database: db/test.sqlite3
 
 production:
   <<: *default
+  database: foosball_production
   #database: db/production.sqlite3
