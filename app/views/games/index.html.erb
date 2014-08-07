@@ -1,0 +1,14 @@
+<h2>Game History</h2>
+
+<%= link_to 'New Game', new_game_path %>
+
+<ul>
+	<% @games.each do |game| %>
+		<li>
+			Me
+			<%= game.my_score %>
+			<%= @opponent.first_name %>
+			<%= game.opponent_score %>
+		</li>
+	<% end %>
+</ul>

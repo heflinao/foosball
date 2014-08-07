@@ -1,14 +1,13 @@
 require 'spec_helper'
 
 feature "create new user" do
-	let(:user) { create(:user) }
 	scenario "with email" do
 		visit new_user_registration_path 
-		fill_in "First name", with: user.first_name
-		fill_in "Last name", with: user.last_name
-		fill_in "Email", with: user.email
-		fill_in "Password", with: user.password
-		fill_in "Password confirmation", with: user.password
+		fill_in "First name", with: "Alex"
+		fill_in "Last name", with: "Heflin"
+		fill_in "Email", with: "example@example.com"
+		fill_in "Password", with: "testtest"
+		fill_in "Password confirmation", with: "testtest"
 		click_button "Sign Up"
 		expect(page).to have_content("Welcome! You have signed up successfully.")
 	end

@@ -1,0 +1,16 @@
+<%= form_for @game, url: {action: "create"} do |f| %>
+	<% if @game.errors.any? %>
+		<div id="error_explaination">
+			<h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
+			<ul>
+				<% @game.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<%= f.number_field :my_score, in: 1.0..5.0, step: 1.0 %>
+	<%= f.select( :opponent, User.all.collect { |u| [ u.first_name, u.id ] } ) %>
+	<%= f.number_field :opponent_score, in: 1.0..5.0, step: 1.0 %>
+	<%= f.submit "Save" %>
+<% end %>
