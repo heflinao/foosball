@@ -1,3 +1,5 @@
+require 'database_cleaner' 
+
 ENV["RAILS_ENV"] ||= 'test'
 	require File.expand_path("../../config/environment", __FILE__)
 	require 'rspec/rails'
@@ -6,6 +8,7 @@ ENV["RAILS_ENV"] ||= 'test'
 	Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 	ActiveRecord::Migration.maintain_test_schema!
+	DatabaseCleaner.strategy = :truncation
 
 	RSpec.configure do |config|
 		config.fixture_path = "#{::Rails.root}/spec/fixtures"

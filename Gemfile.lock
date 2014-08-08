@@ -52,6 +52,7 @@ GEM
       execjs
     coffee-script-source (1.7.1)
     columnize (0.8.9)
+    database_cleaner (0.9.1)
     debugger-linecache (1.2.0)
     devise (3.2.4)
       bcrypt (~> 3.0)
@@ -187,6 +188,7 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.0.0)
+  database_cleaner (= 0.9.1)
   devise
   factory_girl_rails
   jquery-rails
