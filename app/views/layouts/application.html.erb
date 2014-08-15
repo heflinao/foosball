@@ -24,14 +24,27 @@
 	</div>
 </nav>
 
-<% if notice %>
-	<p class="col-xs-12 col-md-4 col-md-offset-4 alert alert-warning"><%= notice %></p>
-<% end %>
-<% if alert %>
-	<p class="col-xs-12 col-md-4 col-md-offset-4 alert alert-danger""><%= alert %></p>
-<% end %>
-
-<%= yield %>
+<div class="container-fluid">
+  <div class="row">
+    <% if notice %>
+      <p class="col-xs-12 col-md-4 col-md-offset-4 alert alert-warning"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="col-xs-12 col-md-4 col-md-offset-4 alert alert-danger"><%= alert %></p>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-2">
+      <%= form_tag users_path, :method => 'get', role: "form" do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search for an opponent" %>
+        <%= submit_tag "Search", :name => nil, class: "sr-only" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <%= yield %>
+  </div>
+</div>
 
 </body>
 </html>

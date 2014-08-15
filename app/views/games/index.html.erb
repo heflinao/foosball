@@ -1,14 +1,21 @@
-<h2>Game History</h2>
+<h1>Just play a game?</h1>
+<%= link_to 'Record it!', new_game_path %>
 
-<%= link_to 'New Game', new_game_path %>
-
-<ul>
-	<% @games.each do |game| %>
-		<li>
-			Me
-			<%= game.my_score %>
-			<%= @opponent.first_name %>
-			<%= game.opponent_score %>
-		</li>
-	<% end %>
-</ul>
+<h1>Game History</h1>
+<div class="col-md-4">
+  <% @games.each do |game| %>
+    <div class="col-md-2">
+      <span class="person">Me</span>
+      <br />
+      <%= game.my_score %>
+    </div>
+    <div class="col-md-1">
+      <span>vs.</span>
+    </div>
+    <div class="col-md-3">
+      <span class="person"><%= @opponent.first_name %></span>
+      <br />
+      <%= game.opponent_score %>
+    </div>
+  <% end %>
+</div>

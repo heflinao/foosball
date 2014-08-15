@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { registrations: 'registrations' }
+  devise_for :users, :controllers => { registrations: 'registrations' }, :path => 'u'
 	devise_scope :user do
 		authenticated :user do
 			root :to => 'games#index'
@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 		end
 	end
 	
+  resources :users, :only => [:index]
 	resources :games
-	
 end
