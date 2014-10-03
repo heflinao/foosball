@@ -1,13 +1,16 @@
-Me:
-<%= @me.first_name %>
-<br />
-Score:
-<%= @game.my_score %>
-<br />
-Opponent:
-<%= @opponent.first_name %>
-<br />
-Score:
-<%= @game.opponent_score %>
-
-
+<div class="row">
+  <div class="col-md-6">
+    <p>
+      Me:
+      <%= @me.first_name %>
+      Score:
+      <%= @game.my_score %>
+    </p>
+    <p>
+      Opponent:
+      <%= @opponent.first_name %>
+      Score:
+      <%= @game.opponent_score %>
+    </p>
+  </div>
+</div>
